@@ -28,4 +28,18 @@ spec:
     - port: 80
       nodePort: 30001
       protocol: TCP
+  type: NodePort
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+spec:
+  selector:
+    app: web
+  ports:
+    - port: 80
+      targetPort: 5000
+      nodePort: 30100
   type: LoadBalancer
